@@ -23,14 +23,9 @@ npm install
 
 ```
 projedt-root/
-├── CLAUDE.md                  # Claude Code 向けプロジェクトガイダンス
-├── AGENTS.md                  # エージェントオーケストレーション指示書
-├── CONTRIBUTING.md            # コントリビューションガイド
-├── TROUBLESHOOTING.md         # トラブルシューティングガイド
+├── CONTRIBUTING.md            # コントリビューションガイド（人間向け）
+├── TROUBLESHOOTING.md         # トラブルシューティングガイド（人間向け）
 ├── package.json               # フックスクリプトの依存管理
-├── package-lock.json
-│
-├── agents/                    # 28 の特化型サブエージェント定義
 │
 ├── scripts/                   # 113 のフック実行スクリプト（Node.js）
 │   ├── hooks/                 #   29 のフックハンドラー
@@ -40,7 +35,10 @@ projedt-root/
 │   └── ...
 │
 └── .claude/
+    ├── CLAUDE.md              # Claude Code 向けプロジェクトガイダンス
+    ├── AGENTS.md              # エージェントオーケストレーション指示書
     ├── settings.json          # フック設定（hooks.json 相当）
+    ├── agents/                # 28 の特化型サブエージェント定義
     ├── commands/              # 60 のスラッシュコマンド
     ├── skills/                # 125 のスキル定義（各 SKILL.md）
     ├── rules/                 # 65 のルール（共通 + 11 言語別）
@@ -50,18 +48,23 @@ projedt-root/
 
 ---
 
-## ルートファイル (4 ファイル)
+## ルートファイル (2 ファイル)
+
+| ファイル | 概要 |
+|---|---|
+| `TROUBLESHOOTING.md` | トラブルシューティングガイド。コンテキストオーバーフロー、フックエラー、インストール問題、パフォーマンス問題の解決策 |
+
+## .claude/ 直下のファイル
 
 | ファイル | 概要 |
 |---|---|
 | `CLAUDE.md` | Claude Code がプロジェクトを開いた際に最初に読み込む指示ファイル。プロジェクト構造、テスト実行方法、アーキテクチャ概要、コーディング規約を定義 |
 | `AGENTS.md` | エージェントの振る舞いを決定する上位指示書。基本原則、利用可能エージェント一覧、オーケストレーション方針、セキュリティガイドライン、テスト要件を網羅 |
-| `CONTRIBUTING.md` | コントリビューションガイド。スキル・エージェント・フック・コマンドの追加方法、テンプレート、PR プロセスを説明 |
-| `TROUBLESHOOTING.md` | トラブルシューティングガイド。コンテキストオーバーフロー、フックエラー、インストール問題、パフォーマンス問題の解決策 |
+| `settings.json` | フック設定（hooks.json 相当）。28 フックエントリを管理 |
 
 ---
 
-## agents/ — 28 エージェント
+## .claude/agents/ — 28 エージェント
 
 YAML フロントマター付き Markdown で定義された特化型サブエージェント。Claude Code の Task ツール経由で自動委譲されます。
 
